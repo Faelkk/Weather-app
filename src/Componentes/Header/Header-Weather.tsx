@@ -12,6 +12,7 @@ const Header = () => {
           type="text"
           placeholder="Pesquise uma cidade"
           id="weather-input"
+          required
         />
         <WeatherLocation />
       </HeaderApp>

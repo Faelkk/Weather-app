@@ -19,7 +19,7 @@ const ImgLocate = styled.img`
   width: 25px;
 `;
 const Label = styled.label``;
-const InputWeather = ({ id, placeholder, type }: inputTypes) => {
+const InputWeather = ({ id, placeholder, type, required }: inputTypes) => {
   const [inputValue, setInputValue] = React.useState("");
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -40,6 +40,7 @@ const InputWeather = ({ id, placeholder, type }: inputTypes) => {
         onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
           setInputValue(event.target.value)
         }
+        required={required}
       />
     </Form>
   );
