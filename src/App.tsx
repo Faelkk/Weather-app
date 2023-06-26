@@ -1,5 +1,7 @@
+import Header from "./Componentes/Header/Header-Weather";
+
 const App = () => {
-  console.log("oi");
+  return <Header />;
 };
 
 export default App;
