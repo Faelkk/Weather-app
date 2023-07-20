@@ -1,7 +1,7 @@
-import Header from "./Componentes/Header/Header-Weather";
+import Weather from "./Componentes/WeatherMain/Weather";
 
 const App = () => {
-  return <Header />;
+  return <Weather />;
 };
 
 export default App;

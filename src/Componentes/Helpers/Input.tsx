@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent, FormEvent } from "react";
 import imgIcon from "../../assets/search_FILL0_wght400_GRAD0_opsz48.svg";
 import styled from "styled-components";
 import { inputTypes } from "../../Types/Types";
@@ -14,17 +14,29 @@ const Form = styled.form`
 const Input = styled.input`
   font-family: "Poppins", sans-serif;
   background: none;
+  font-size: 1rem;
 `;
 const ImgLocate = styled.img`
   width: 25px;
 `;
 const Label = styled.label``;
-const InputWeather = ({ id, placeholder, type, required }: inputTypes) => {
-  const [inputValue, setInputValue] = React.useState("");
+const InputWeather = ({
+  id,
+  placeholder,
+  type,
+  required,
+  onSearch,
+}: inputTypes) => {
+  const [searchValue, setSearch] = React.useState("");
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    setSearch(event.target.value);
+  }
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setInputValue("");
+    onSearch(searchValue);
+    setSearch("");
   }
 
   return (
@@ -36,11 +48,9 @@ const InputWeather = ({ id, placeholder, type, required }: inputTypes) => {
         type={type}
         id={id}
         placeholder={placeholder}
-        value={inputValue}
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-          setInputValue(event.target.value)
-        }
         required={required}
+        value={searchValue}
+        onChange={handleChange}
       />
     </Form>
   );
