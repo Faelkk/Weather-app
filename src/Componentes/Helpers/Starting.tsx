@@ -19,12 +19,20 @@ const TitleStart = styled.div`
 const ImgIcon = styled.img`
   background: #eee;
   border-radius: 2px;
-  width: 500px;
+  width: 450px;
+  @media (max-width: 768px) {
+    width: 300px;
+  }
 `;
 const ContainerInput = styled.div`
   display: flex;
   gap: 2rem;
   margin-bottom: 1rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 `;
 
 export interface SearchHandle {
