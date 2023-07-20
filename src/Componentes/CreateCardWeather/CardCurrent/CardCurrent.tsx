@@ -1,10 +1,10 @@
 import { WeatherApi } from "../../../Types/Types";
+import ImageCard from "../../Helpers/Image";
 import {
   AboutLocate,
   CardNow,
   ContainerInfo,
   ContainerTemp,
-  ImgWeather,
   SpanDescription,
   SpanLocate,
   SpanTemp,
@@ -22,7 +22,7 @@ const CardCurrent: React.FC<WeatherApi> = ({ currentWeather }) => {
           <ContainerTemp>
             {" "}
             <SpanTemp>{currentWeather.current.temp_c}°C </SpanTemp>{" "}
-            <ImgWeather src={weatherIcon.replace("64x64", "128x128")} />
+            <ImageCard src={weatherIcon.replace("64x64", "128x128")} />
           </ContainerTemp>
           <AboutLocate>
             {" "}
