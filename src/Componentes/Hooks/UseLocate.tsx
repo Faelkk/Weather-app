@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { WeatherApi, WeatherCurrent } from "../../Types/Types";
 
 function useLocationCurrent(inputValue: string) {
   const apiKeyCurrent = "17afd8ed31e14b1abf4160832231807";
 
-  const [currentWeather, setCurrentWeather] = useState([]);
+  const [currentWeather, setCurrentWeather] = useState<WeatherCurrent | null>(
+    null
+  );
   const [loadingCurrent, setLoadingCurrent] = useState(false);
   const [errorCurrent, setErrorCurrent] = useState(false);
 
@@ -20,6 +23,7 @@ function useLocationCurrent(inputValue: string) {
           if (response.ok) {
             const result = await response.json();
             setCurrentWeather(result);
+            console.log(currentWeather);
           } else {
             throw new Error("Error ao achar a sua cidade");
           }
@@ -40,7 +44,7 @@ export default useLocationCurrent;
 
 export function useForeCastLocation(inputValue: string) {
   const apiKeyForeCast = "17afd8ed31e14b1abf4160832231807";
-  const [forecastWeather, setforecastWeather] = useState([[""]]);
+  const [forecastWeather, setforecastWeather] = useState<WeatherApi>();
   const [loadingforecast, setLoadingforecast] = useState(false);
   const [errorforecast, setErrorforecast] = useState(false);
   useEffect(() => {

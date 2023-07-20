@@ -14,9 +14,9 @@ export interface WeatherCurrent {
   current: Current;
 }
 export interface WeatherApi {
-  forecastWeather: WeatherForecast;
-  currentWeather: WeatherCurrent;
-  aboutToday: WeatherForecast;
+  forecastWeather?: WeatherForecast;
+  currentWeather?: WeatherCurrent;
+  aboutToday?: WeatherForecast;
 }
 export interface WeatherForecast extends WeatherCurrent {
   forecast: Forecast;

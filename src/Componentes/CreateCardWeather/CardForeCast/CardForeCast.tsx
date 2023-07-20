@@ -93,6 +93,7 @@ const Max = styled.span`
 `;
 
 const CardForeCast: React.FC<WeatherApi> = ({ forecastWeather }) => {
+  if (!forecastWeather) return null;
   return (
     <Container>
       <CardsCenter>

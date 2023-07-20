@@ -56,6 +56,7 @@ import windSpeed from "../../../assets/wind-svgrepo-com.svg";
 import { WeatherApi } from "../../../Types/Types";
 
 const InformationToday: React.FC<WeatherApi> = ({ aboutToday }) => {
+  if (!aboutToday) return null;
   return (
     <>
       {" "}

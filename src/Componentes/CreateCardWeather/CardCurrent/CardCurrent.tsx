@@ -12,6 +12,7 @@ import {
 } from "./style";
 
 const CardCurrent: React.FC<WeatherApi> = ({ currentWeather }) => {
+  if (!currentWeather) return null;
   const weatherIcon = currentWeather.current.condition.icon;
   return (
     <>

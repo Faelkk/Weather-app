@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import Error from "../Helpers/Error";
 import Loading from "../Helpers/Loading";
-import { useForeCastLocation } from "../Hooks/UseLocate";
+import useLocationCurrent, { useForeCastLocation } from "../Hooks/UseLocate";
 import CardCurrent from "./CardCurrent/CardCurrent";
 import CardForeCast from "./CardForeCast/CardForeCast";
 import InformationToday from "./InformationsDay/InformationToday";
 import { ContainerCurrent } from "./CardCurrent/style";
-import { WeatherType } from "../../Types/Types";
-import useLocationCurrent from "../Hooks/UseLocate";
+import {
+  WeatherCurrent,
+  WeatherForecast,
+  WeatherType,
+} from "../../Types/Types";
 
 const Container = styled.div`
   display: flex;
@@ -28,18 +31,16 @@ const CardWeather = ({ weather }: WeatherType) => {
   if (errorCurrent && errorforecast) {
     return <Error />;
   }
-  if (currentWeather.length !== 0) {
-    return (
-      <Container>
-        <ContainerCurrent>
-          <CardCurrent currentWeather={currentWeather} />
-          <InformationToday aboutToday={forecastWeather} />
-        </ContainerCurrent>
-
-        <CardForeCast forecastWeather={forecastWeather} />
-      </Container>
-    );
-  }
+  if (!currentWeather || !forecastWeather) return null;
+  return (
+    <Container>
+      <ContainerCurrent>
+        <CardCurrent currentWeather={currentWeather as WeatherCurrent} />
+        <InformationToday aboutToday={forecastWeather as WeatherForecast} />
+      </ContainerCurrent>
+      <CardForeCast forecastWeather={forecastWeather as WeatherForecast} />
+    </Container>
+  );
 };
 
 export default CardWeather;
