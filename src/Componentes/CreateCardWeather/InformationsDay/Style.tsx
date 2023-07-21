@@ -27,7 +27,6 @@ export const HilightTop = styled.div`
   margin-bottom: 1.2rem;
   @media (max-width: 768px) {
     flex-direction: column;
-    margin-bottom: 2rem;
   }
 `;
 export const HilightBot = styled.div`
