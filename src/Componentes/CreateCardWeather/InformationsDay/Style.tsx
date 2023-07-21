@@ -14,6 +14,9 @@ export const CardHilights = styled.div`
   box-shadow: rgb(7, 6, 6) 0px 3px 10px 0px;
 `;
 export const ContainerHilights = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   @media (max-width: 768px) {
     display: flex;
     justify-content: center;
