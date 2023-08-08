@@ -3,48 +3,18 @@ import {
   CardHilights,
   H2Hilight,
   ContainerHilights,
-  DivSunrise,
-  TitleSunRise,
-  ImgSunrise,
-  SpanSunRise,
-  ContainerAboutSensation,
-  ContainerVisibilityAndSpeed,
-  SpanSunset,
-  ContainerTime,
-  ImgSunset,
-  SunriseAbout,
-  TitleSunset,
-  DivSunset,
-  SunsetAbout,
-  SensationDiv,
-  ImgSensation,
-  TitleSensation,
-  SpanSensation,
-  SensationCard,
-  ImgUmidity,
-  UmidityCard,
-  UmidityDiv,
-  SpanUmity,
-  TitleUmidity,
-  CardVisibility,
-  CardSpeed,
-  TitleVisibility,
-  VisibilityDuo,
-  ImgIconVisibility,
-  SpanVisibility,
-  TitleSpeed,
-  SpeedDuo,
-  ImgSpeedIcon,
-  SpanSpeed,
+  DivCardsInf,
+  TitleInf,
+  ImgInf,
+  SpanInf,
+  ContainerInf,
   HilightTop,
   HilightBot,
   ContainerPrevisionTemp,
-  MinTempDiv,
-  MaxTempDiv,
-  TitleMinTemp,
-  SpanMinTemp,
-  TitleMaxTemp,
-  SpanMaxTemp,
+  TempDiv,
+  TitleTemp,
+  SpanTemp,
+  AboutInf,
 } from "./Style";
 
 import sunriseImg from "../../../assets/icons8-sunrise.svg";
@@ -64,65 +34,65 @@ const InformationToday: React.FC<WeatherApi> = ({ aboutToday }) => {
         <H2Hilight>Informações de hoje</H2Hilight>
         <ContainerHilights>
           <HilightTop>
-            <ContainerTime>
-              <DivSunrise>
-                <TitleSunRise>Nascer do sol:</TitleSunRise>
-                <SunriseAbout>
-                  <ImgSunrise src={sunriseImg} />
-                  <SpanSunRise>{` ${aboutToday.forecast.forecastday[0].astro.sunrise}`}</SpanSunRise>
-                </SunriseAbout>
-              </DivSunrise>
-              <DivSunset>
-                <TitleSunset>Por do sol:</TitleSunset>
-                <SunsetAbout>
-                  <ImgSunset src={sunsetImg} />
-                  <SpanSunset>{`${aboutToday.forecast.forecastday[0].astro.sunset} `}</SpanSunset>
-                </SunsetAbout>
-              </DivSunset>
-            </ContainerTime>
-            <ContainerAboutSensation>
-              <SensationCard>
-                <TitleSensation>Sensação termica:</TitleSensation>
-                <SensationDiv>
-                  <ImgSensation src={tempSensationIcon} />
-                  <SpanSensation>{`${aboutToday.current.feelslike_c}°C `}</SpanSensation>
-                </SensationDiv>
-              </SensationCard>
-              <UmidityCard>
-                <TitleUmidity>Umidade:</TitleUmidity>
-                <UmidityDiv>
-                  <ImgUmidity src={umidityIcon} />
-                  <SpanUmity>{`${aboutToday.current.humidity}%`}</SpanUmity>
-                </UmidityDiv>
-              </UmidityCard>
-            </ContainerAboutSensation>
+            <ContainerInf>
+              <DivCardsInf>
+                <TitleInf>Nascer do sol:</TitleInf>
+                <AboutInf>
+                  <ImgInf src={sunriseImg} />
+                  <SpanInf>{` ${aboutToday.forecast.forecastday[0].astro.sunrise}`}</SpanInf>
+                </AboutInf>
+              </DivCardsInf>
+              <DivCardsInf>
+                <TitleInf>Por do sol:</TitleInf>
+                <AboutInf>
+                  <ImgInf src={sunsetImg} />
+                  <SpanInf>{`${aboutToday.forecast.forecastday[0].astro.sunset} `}</SpanInf>
+                </AboutInf>
+              </DivCardsInf>
+            </ContainerInf>
+            <ContainerInf>
+              <DivCardsInf>
+                <TitleInf>Sensação termica:</TitleInf>
+                <AboutInf>
+                  <ImgInf src={tempSensationIcon} />
+                  <SpanInf>{`${aboutToday.current.feelslike_c}°C `}</SpanInf>
+                </AboutInf>
+              </DivCardsInf>
+              <DivCardsInf>
+                <TitleInf>Umidade:</TitleInf>
+                <AboutInf>
+                  <ImgInf src={umidityIcon} />
+                  <SpanInf>{`${aboutToday.current.humidity}%`}</SpanInf>
+                </AboutInf>
+              </DivCardsInf>
+            </ContainerInf>
           </HilightTop>
           <HilightBot>
-            <ContainerVisibilityAndSpeed>
-              <CardVisibility>
-                <TitleVisibility>Visibilidade:</TitleVisibility>
-                <VisibilityDuo>
-                  <ImgIconVisibility src={visibilityIcon} />
-                  <SpanVisibility>{`${aboutToday.current.vis_km}km`}</SpanVisibility>
-                </VisibilityDuo>
-              </CardVisibility>
-              <CardSpeed>
-                <TitleSpeed>Vento:</TitleSpeed>
-                <SpeedDuo>
-                  <ImgSpeedIcon src={windSpeed} />
-                  <SpanSpeed>{`${aboutToday.current.wind_kph}   km/h`}</SpanSpeed>
-                </SpeedDuo>
-              </CardSpeed>
-            </ContainerVisibilityAndSpeed>
+            <ContainerInf>
+              <DivCardsInf>
+                <TitleInf>Visibilidade:</TitleInf>
+                <AboutInf>
+                  <ImgInf src={visibilityIcon} />
+                  <SpanInf>{`${aboutToday.current.vis_km}km`}</SpanInf>
+                </AboutInf>
+              </DivCardsInf>
+              <DivCardsInf>
+                <TitleInf>Vento:</TitleInf>
+                <AboutInf>
+                  <ImgInf src={windSpeed} />
+                  <SpanInf>{`${aboutToday.current.wind_kph}   km/h`}</SpanInf>
+                </AboutInf>
+              </DivCardsInf>
+            </ContainerInf>
             <ContainerPrevisionTemp>
-              <MinTempDiv>
-                <TitleMinTemp>Temperatura minima:</TitleMinTemp>
-                <SpanMinTemp>{`${aboutToday.forecast.forecastday[0].day.mintemp_c}°C `}</SpanMinTemp>
-              </MinTempDiv>
-              <MaxTempDiv>
-                <TitleMaxTemp>Temperatura maxima:</TitleMaxTemp>
-                <SpanMaxTemp>{`${aboutToday.forecast.forecastday[0].day.maxtemp_c}°C `}</SpanMaxTemp>
-              </MaxTempDiv>
+              <TempDiv>
+                <TitleTemp>Temperatura minima:</TitleTemp>
+                <SpanTemp>{`${aboutToday.forecast.forecastday[0].day.mintemp_c}°C `}</SpanTemp>
+              </TempDiv>
+              <TempDiv>
+                <TitleTemp>Temperatura maxima:</TitleTemp>
+                <SpanTemp>{`${aboutToday.forecast.forecastday[0].day.maxtemp_c}°C `}</SpanTemp>
+              </TempDiv>
             </ContainerPrevisionTemp>
           </HilightBot>
         </ContainerHilights>

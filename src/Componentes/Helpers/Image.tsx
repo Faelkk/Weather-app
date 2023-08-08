@@ -6,6 +6,8 @@ const Wrapper = styled.div`
 
 export const ImgCard = styled.img`
   width: 150px;
+  height: 150px;
+  max-height: 150px;
 `;
 
 const Skeleton = styled.div`

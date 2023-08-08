@@ -14,12 +14,14 @@ export interface WeatherCurrent {
   current: Current;
 }
 export interface WeatherApi {
-  forecastWeather?: WeatherForecast;
+  WeatherApi?: WeatherForecast;
   currentWeather?: WeatherCurrent;
   aboutToday?: WeatherForecast;
 }
-export interface WeatherForecast extends WeatherCurrent {
+export interface WeatherForecast {
   forecast: Forecast;
+  location: Location;
+  current: Current;
 }
 
 export interface Location {

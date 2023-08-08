@@ -92,30 +92,25 @@ const Max = styled.span`
   text-transform: uppercase;
 `;
 
-const CardForeCast: React.FC<WeatherApi> = ({ forecastWeather }) => {
-  if (!forecastWeather) return null;
+const CardForeCast: React.FC<WeatherApi> = ({ WeatherApi }) => {
+  if (!WeatherApi) return null;
+
   return (
     <Container>
       <CardsCenter>
-        <TitleCards>Previsão dos proximos 7 dias</TitleCards>
+        <TitleCards>Previsão dos próximos 7 dias</TitleCards>
         <CardContainer>
-          {forecastWeather.forecast.forecastday.map((weather, index) => {
-            const data = new Date(weather.date_epoch * 1000);
-            const diaDaSemana = data.toLocaleString("pt-BR", {
-              weekday: "long",
-            });
-            // pt-br é a liguagem  caso um dia precise o weekday serve pra pegar o dia, e o long é o nome completo, caso queira curtos é outro
+          {WeatherApi.forecast.forecastday.map((weather, index) => {
             return (
               <Card key={index}>
-                <TitleCard>{diaDaSemana}</TitleCard>
+                <TitleCard>{WeatherApi.location.name}</TitleCard>
                 <IconCard src={weather.day.condition.icon} />
                 <ContainerTemp>
                   <MinTemp>
                     <Min>min: </Min> {`${weather.day.mintemp_c.toFixed(0)}°C `}
                   </MinTemp>
-
                   <MaxTemp>
-                    <Max>max: </Max> {`${weather.day.maxtemp_c.toFixed(0)}° `}
+                    <Max>max: </Max> {`${weather.day.maxtemp_c.toFixed(0)}°C `}
                   </MaxTemp>
                 </ContainerTemp>
               </Card>
